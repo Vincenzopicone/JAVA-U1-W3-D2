@@ -79,13 +79,20 @@ public class DBConnection {
         return studente;
     }
     public void getBest() throws SQLException {
-        String sql = "SELECT MAX(avg) FROM students";
+        String sql = "SELECT * FROM students WHERE avg = (SELECT max(avg) FROM students)";
         Student studente = null;
         ResultSet myRes = this.st.executeQuery(sql);
         if (myRes.next()) {
-            Double avg = myRes.getDouble("max");
-            System.out.println(avg);
-            studente = new Student(avg);
+            Long id = myRes.getLong("id_student");
+            String name = myRes.getString("name");
+            String lastname = myRes.getString("lastname");
+            String gender = myRes.getString("gender");
+            LocalDate birthday = myRes.getDate("birthday").toLocalDate();
+            Double avg = myRes.getDouble("avg");
+            Double minVote = myRes.getDouble("min_vote");
+            Double maxVote = myRes.getDouble("max_vote");
+            studente = new Student(id, name, lastname, gender, birthday, avg, minVote, maxVote);
+            System.out.println(studente);
         };
     }
 
