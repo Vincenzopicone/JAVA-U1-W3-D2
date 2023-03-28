@@ -80,12 +80,14 @@ public class DBConnection {
     }
     public void getBest() throws SQLException {
         String sql = "SELECT MAX(avg) FROM students";
+        Student studente = null;
         ResultSet myRes = this.st.executeQuery(sql);
-        while (myRes.next()) {
-            int votoMax = myRes.getInt("avg");
-            System.out.println(votoMax);
+        if (myRes.next()) {
+            Double avg = myRes.getDouble("max");
+            System.out.println(avg);
+            studente = new Student(avg);
         };
     }
-    
+
 }
 

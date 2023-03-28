@@ -34,6 +34,9 @@ public class Student {
         this.min_vote = min_vote;
         this.max_vote = max_vote;
     }
+    public Student(Double avg) {
+        this.avg = avg;
+    }
 
     public Long getId() {
         return id;

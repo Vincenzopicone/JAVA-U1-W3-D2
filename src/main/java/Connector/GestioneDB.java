@@ -18,10 +18,10 @@ public class GestioneDB {
             Student S7 = new Student("Peppe", "Giallo", "M", LocalDate.of(1986,10,19),6.00, 9.50 );
             Student S8 = new Student("Lidia", "Nero", "F", LocalDate.of(1931,10,20),5.50, 8.00 );
             // db.createStudent(S8);
-            Student StudenteLetto = db.findStudent(9);
+            //Student StudenteLetto = db.findStudent(9);
             /// db.deleteStudent(StudenteLetto);
-            StudenteLetto.setName("Rosa");
-            db.updateStudent(9, StudenteLetto);
+            //StudenteLetto.setName("Rosa");
+            //db.updateStudent(9, StudenteLetto);
             db.getBest();
 
         } catch (SQLException e) {
